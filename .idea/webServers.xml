@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d424b653-348e-4ef2-b4c3-5ec4cb2f153c" name="style-by-fashion.ru">
+        <fileTransfer rootFolder="/var/www/u0819326/data/www" accessType="SFTP" host="37.140.192.172" port="22" sshConfigId="681d3762-072f-4ebe-98b8-0af95e4d23f5" sshConfig="MyReg.ru">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
