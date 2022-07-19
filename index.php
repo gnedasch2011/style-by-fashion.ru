@@ -56,7 +56,8 @@
                 }, (time || 100));
             }
         }
-//test
+
+        //test
         function t_throttle(fn, threshhold, scope) {
             return function () {
                 fn.apply(scope || this, arguments);
@@ -107,7 +108,9 @@
             }
         })();</script>
 </head>
-<body class="t-body" style="margin:0;"><!--allrecords-->
+<body class="t-body" style="margin:0;">
+
+<!--allrecords-->
 <div id="allrecords" data-tilda-export="yes" class="t-records"
      data-hook="blocks-collection-content-node" data-tilda-project-id="5701394"
      data-tilda-page-id="28996477" data-tilda-page-alias="style"
@@ -5227,21 +5230,11 @@
                                 контакты и мы с Вами свяжемся в ближайшее время
                             </div>
                         </div>
-                        <form id="form469244994" name='form469244994' role="form" action=''
-                              method='POST' data-formactiontype="2" data-inputbox=".t-input-group"
-                              class="t-form js-form-proccess t-form_inputs-total_2 "
-                              data-success-callback="t702_onSuccess"><input type="hidden"
-                                                                            name="formservices[]"
-                                                                            value="6d2a138f405a71e1385d5f8842f27f29"
-                                                                            class="js-formaction-services">
-                            <input type="hidden" name="formservices[]"
-                                   value="cae0402b1f3c4800d9bd6bf047ddb4d3"
-                                   class="js-formaction-services"> <input type="hidden"
-                                                                          name="formservices[]"
-                                                                          value="d69632f6e52da82144357c3521885d70"
-                                                                          class="js-formaction-services">
-                            <input type="hidden" name="tildaspec-formname" tabindex="-1"
-                                   value="форма">
+
+                        <form id="form-order" action=''
+                              method='POST'
+                        >
+
                             <div class="js-successbox t-form__successbox t-text t-text_md"
                                  style="display:none;">Спасибо. Данные успешно отправлены.
                             </div>
@@ -5321,7 +5314,7 @@
                                     </div>
                                 </div>
                                 <div class="t-form__submit">
-                                    <button type="submit" class="t-submit"
+                                    <button type="submit" class="t-submit t-submit-js"
                                             style="color:#5460a1;background-color:#f5c591;border-radius:15px; -moz-border-radius:15px; -webkit-border-radius:15px;font-family:Roboto;">
                                         Отправить
                                     </button>
@@ -5342,6 +5335,25 @@
                                 </div>
                             </div>
                         </form>
+                        <script>
+                            console.log('fdf');
+                            $(document).on('click', '.t-submit-js', function (e) {
+                                e.preventDefault();
+                                $.ajax({
+                                    url: '/post-order.php',
+                                    method: "post",
+                                    data: $("#form-order").serialize(),
+
+                                    success: function (data) {
+                                        if (data) {
+                                            $('#form-order>.t-form__successbox').show();
+                                        }
+                                        console.log(data);
+                                    }
+                                });
+                            })
+
+                        </script>
                         <style>#rec469244994 input::-webkit-input-placeholder {
                                 color: #000000;
                                 opacity: 0.5;
